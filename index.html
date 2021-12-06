@@ -1,114 +1,143 @@
 <html>
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <script src="https://unpkg.com/feather-icons"></script>
   </head>
   <body>
     <div id="overlay" class="overlay"></div>
-    <nav class="navbar">
-      <div id="nav" class="mobileOverlay">
-        <div class="menuHeader">
-          <a href="javascript: undefined" onclick="handleClose()">
-            <i data-feather="arrow-left-circle" class="closeIcon"></i>
-          </a>
-        </div>
-        <div class="logo" id="test" >
-         <h2>MyNFT</h2>
-        </div>
+    <div id="content">
+      <nav class="navbar">
+        <div id="nav" class="mobileOverlay">
+          <div class="menuHeader">
+            <a href="javascript: undefined" onclick="handleClose()">
+              <i data-feather="arrow-left-circle" class="closeIcon"></i>
+            </a>
+          </div>
+          <div class="logo" id="test">
+            <h2>MyNFT</h2>
+          </div>
 
-        <ul id="menu" class="menu">
-          <li class="menu__item menu__item--active">
-            <a href="#"><i data-feather="shopping-bag"></i> Home</a>
-          </li>
-          <li class="menu__item">
-            <a href="#"><i data-feather="pocket"></i> My Wallet</a>
-          </li>
-          <li class="menu__item">
-            <a href="#"><i data-feather="users"></i> Creator Hub</a>
-          </li>
-          <li class="menu__item">
-            <a href="#"><i data-feather="phone"></i> Help</a>
-          </li>
-          <li class="menu__item">
-            <a href="#"><i data-feather="info"></i> About myNft</a>
-          </li>
-        </ul>
+          <ul id="menu" class="menu">
+            <li class="menu__item menu__item--active">
+              <a href="#"><i data-feather="shopping-bag"></i> Home</a>
+            </li>
+            <li class="menu__item">
+              <a href="#"><i data-feather="pocket"></i> My Wallet</a>
+            </li>
+            <li class="menu__item">
+              <a href="#"><i data-feather="users"></i> Creator Hub</a>
+            </li>
+            <li class="menu__item">
+              <a href="#"><i data-feather="phone"></i> Help</a>
+            </li>
+            <li class="menu__item">
+              <a href="#"><i data-feather="info"></i> About myNft</a>
+            </li>
+          </ul>
 
-
-        <a href="/admin.html">      
           <div class="profile">
             <div class="avatar">
               <img
                 src="https://www.looper.com/img/gallery/the-surprising-inspirations-behind-ella-purnells-jinx-in-arcane-exclusive/l-intro-1636657917.jpg"
                 class="avatarImage"
+                id="avatar"
               />
             </div>
-  
+
             <div>
-            <h5 class="profile__name">Jinx Marieland</h5>
-              <h6 class="profile__role">Last purchase 1d ago</h5>
+              <h5 id="uname" class="profile__name">Jinx Marieland</h5>
+              <h5 class="profile__role">Last purchase 1d ago</h5>
             </div>
           </div>
-        </a>
-      </div>
+        </div>
 
-      <div class="header">
-        <a id="openIcon" class="iconBtn" href="javascript: undefined" onclick="handleOpen()">
-          <i data-feather="menu" class="iconBtn__open"></i
-        ></a>
-        <div class="header--dinline">
-          <a href="javascript: undefined">
-            <i data-feather="search" class="header__icon"></i>
+        <div class="header">
+          <a id="openIcon" class="iconBtn" href="javascript: undefined" onclick="handleOpen()">
+            <i data-feather="menu" class="iconBtn__open"></i
+          ></a>
+          <div class="header--dinline">
+            <a href="javascript: undefined">
+              <i data-feather="search" class="header__icon"></i>
+            </a>
+
+            <a href="javascript: undefined">
+              <i data-feather="pocket" class="header__icon"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="popular-collection">
+        <h2 class="popular-collection__heading"> Trending Collections </h2>
+        <p>See More</p>
+        <div id="popularNft" class="grid-container">
+          <div class="grid-container__item card">
+            <div class="card__image">
+              <img
+                src="https://public.nftstatic.com/static/nft/zipped/72d79d73d1cb4ef6a9eea31fc3ab4e01_zipped.jpeg"
+                alt=""
+                class="card__banner"
+              />
+
+              <img
+                src="https://public.nftstatic.com/static/nft/zipped/3fddde7206514c8d8ba9bfffd78e4987_zipped.jpeg"
+                alt=""
+                class="card__avatar"
+              />
+            </div>
+            <div class="card__details">
+              <h3 class="card__title">Elfin Ultra NFT PACK</h3>
+              <p class="card__description">
+                Elfin Kingdom is an exciting new MMORPG Game. Players can choose their role inside
+                the game, explore maps, do daily quests, mine NFTs, collect NFTs, connect with other
+                players and create community , battle and share.
+              </p>
+            </div>
+          </div>
+          <div class="grid-container__item card">2</div>
+          <div class="grid-container__item">3</div>
+          <div class="grid-container__item">4</div>
+        </div>
+
+        <div class="popular-collection__controls">
+          <a onclick="onClickScroll('left')">
+            <i data-feather="chevron-left" class="popular-collection__controls--Icon"></i>
           </a>
 
-          <a href="javascript: undefined">
-            <i data-feather="pocket" class="header__icon"></i>
+          <a onclick="onClickScroll('right')">
+            <i data-feather="chevron-right" class="popular-collection__controls--Icon"></i>
           </a>
         </div>
       </div>
-    </nav>
+    </div>
 
-    <div class="popular-collection">
-      <h2 class="popular-collection__heading">
-        Trending Collections
-      </h2>
-      <p>See More</p>
-      <div id="popularNft" class="grid-container">
-        <div class="grid-container__item card">
-          <div class="card__image">
-            <img src="https://public.nftstatic.com/static/nft/zipped/72d79d73d1cb4ef6a9eea31fc3ab4e01_zipped.jpeg" alt="" class="card__banner">
-
-            <img src="https://public.nftstatic.com/static/nft/zipped/3fddde7206514c8d8ba9bfffd78e4987_zipped.jpeg" alt="" class="card__avatar">
+    <div id="login">
+      <div class="login__wrapper">
+        <h1 class="login__headline">Admin Login</h1>
+        <form action="#">
+          <div>
+            <input type="email" id="email" class="login__input" placeholder="Email" />
           </div>
-          <div class="card__details">
-            <h3 class="card__title">Elfin Ultra NFT PACK</h3>
-            <p class="card__description">
-            Elfin Kingdom is an exciting new MMORPG Game. Players can choose their role inside the game, explore maps, do daily quests, mine NFTs, collect NFTs, connect with other players and create community , battle and share.
-            </p>
+          <div>
+            <input type="password" id="pwd" class="login__input" placeholder="Password" />
           </div>
-        </div>
-        <div class="grid-container__item card">2</div>
-        <div class="grid-container__item">3</div>
-        <div class="grid-container__item">4</div>
-      </div>
 
-      <div class="popular-collection__controls">
-        <a onclick="onClickScroll('left')">
-          <i data-feather="chevron-left" class="popular-collection__controls--Icon"></i>
-        </a>
-
-        <a onclick="onClickScroll('right')">
-          <i data-feather="chevron-right" class="popular-collection__controls--Icon"></i>
-        </a>
+          <button id="submitBtn" class="login__btn">Login/Register</button>
+        </form>
+        <p class="login__text">---------- or ----------</p>
+        <button id="google" class="login__btn-google">
+          <img src="./google.png" alt="" class="login__btn-google-icon" />
+        </button>
       </div>
     </div>
     <script>
       feather.replace();
     </script>
     <script src="script.js"></script>
+    <script type="module" src="login.js"></script>
   </body>
 </html>
