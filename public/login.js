@@ -29,14 +29,15 @@ console.log("testHello", user);
 onAuthStateChanged(auth, (user) => {
   console.log(user);
   if (user) {
-    const displayName = user.displayName;
-    const email = user.email;
-    const photoURL = user.photoURL;
-    const emailVerified = user.emailVerified;
+    // const displayName = user.displayName;
+    // const email = user.email;
+    // const photoURL = user.photoURL;
+    // const emailVerified = user.emailVerified;
 
-    document.getElementById("avatar").src = photoURL;
-    document.getElementById("uname").innerHTML = displayName;
-
+    // setTimeout(() => {
+    //   document.getElementById("avatar").src = photoURL;
+    //   document.getElementById("uname").innerHTML = displayName;
+    // }, 1);
     window.location.href = "./admin.html";
     console.log("count");
   } else {
@@ -82,16 +83,6 @@ document.getElementById("google").addEventListener("click", () => {
       // The signed-in user info.
       const user = result.user;
       // ...
-
-      console.log(user);
-
-      const displayName = user.displayName;
-      const email = user.email;
-      const photoURL = user.photoURL;
-      const emailVerified = user.emailVerified;
-
-      document.getElementById("avatar").src = photoURL;
-      document.getElementById("uname").innerHTML = displayName;
     })
     .catch((error) => {
       // Handle Errors here.
@@ -126,17 +117,6 @@ const signIn = (auth, email, password) => {
               // https://firebase.google.com/docs/reference/js/firebase.User
               const uid = user.uid;
               // ...
-              console.log("uid", uid);
-
-              const displayName = user.displayName;
-              const email = user.email;
-              const photoURL = user.photoURL;
-              const emailVerified = user.emailVerified;
-
-              setTimeout(() => {
-                document.getElementById("avatar").src = photoURL;
-                document.getElementById("uname").innerHTML = displayName;
-              }, 1);
             } else {
               // User is signed out
               // ...
