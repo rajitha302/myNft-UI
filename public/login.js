@@ -8,6 +8,7 @@ import {
   setPersistence,
   browserSessionPersistence,
   onAuthStateChanged,
+  signOut,
 } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -22,6 +23,26 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
+const user = auth.currentUser;
+console.log("testHello", user);
+
+onAuthStateChanged(auth, (user) => {
+  console.log(user);
+  if (user) {
+    const displayName = user.displayName;
+    const email = user.email;
+    const photoURL = user.photoURL;
+    const emailVerified = user.emailVerified;
+
+    document.getElementById("avatar").src = photoURL;
+    document.getElementById("uname").innerHTML = displayName;
+
+    window.location.href = "./admin.html";
+    console.log("count");
+  } else {
+    // window.location.href = "./index.html";
+  }
+});
 
 document.getElementById("submitBtn").addEventListener("click", () => {
   const email = document.getElementById("email").value;
@@ -71,7 +92,6 @@ document.getElementById("google").addEventListener("click", () => {
 
       document.getElementById("avatar").src = photoURL;
       document.getElementById("uname").innerHTML = displayName;
-      updateDom();
     })
     .catch((error) => {
       // Handle Errors here.
@@ -86,11 +106,6 @@ document.getElementById("google").addEventListener("click", () => {
       console.log({ errorCode }, { errorMessage }, { email }, { credential });
     });
 });
-
-const updateDom = () => {
-  document.getElementById("content").style.display = "block";
-  document.getElementById("login").style.display = "none";
-};
 
 const signIn = (auth, email, password) => {
   setPersistence(auth, browserSessionPersistence)
@@ -122,7 +137,6 @@ const signIn = (auth, email, password) => {
                 document.getElementById("avatar").src = photoURL;
                 document.getElementById("uname").innerHTML = displayName;
               }, 1);
-              updateDom();
             } else {
               // User is signed out
               // ...
@@ -142,3 +156,17 @@ const signIn = (auth, email, password) => {
       const errorMessage = error.message;
     });
 };
+
+document.getElementById("logout").addEventListener("click", () => {
+  console.log("logout");
+  signOut(auth)
+    .then(() => {
+      // Sign-out successful.
+      console.log("signing out");
+      window.location.href = "./index.html";
+    })
+    .catch((error) => {
+      // An error happened.
+      console.log("singout error", error);
+    });
+});
