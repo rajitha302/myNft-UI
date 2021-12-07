@@ -1,3 +1,3 @@
-# web-nav
+# web-nav live url
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/web-nav)
+https://nftdemo-8b434.web.app/admin.html
